@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}Form{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row p-5">
+            <div class="col-1"></div>
+            <div class="col-10 border p-3">
+                <form action="api" method="post">
+                    <label for="year">Year:</label><br/>
+                    <select class="form-select" aria-label="Default select example" name="year">
+                        <option selected>Open this select menu</option>
+                        {% for year in years %}
+                            <option value="{{year}}">{{year}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="ccode">Country code:</label><br/>
+                    <select class="form-select" aria-label="Default select example" name="country_code">
+                        <option selected>Open this select menu</option>
+                        {% for country in countries %}
+                            <option value="{{country['countryCode']}}">{{country['name']}}</option>
+                        {% endfor %}
+                    </select>
+                    <!-- Lägg till fält här -->
+                    <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                </form>
+            </div>    
+            <div class="col-1"></div>
+        </div>
+    </div>
+{% endblock %}
